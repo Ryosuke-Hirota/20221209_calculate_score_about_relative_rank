@@ -1,0 +1,11 @@
+"Var1"	"Freq"
+"breast"	56
+"central_nervous_system"	46
+"haematopoietic_and_lymphoid_tissue"	166
+"large_intestine"	58
+"lung"	175
+"ovary"	45
+"pancreas"	40
+"skin"	56
+"stomach"	36
+"upper_aerodigestive_tract"	32
