@@ -6,7 +6,7 @@ setwd("C:/Rdata")
 dir.create("20221209_calculate_score_about_relative_rank")
 
 # import resutl
-# this result is located at ""
+# this result is located at "https://github.com/Ryosuke-Hirota/20221122_ROC_curve_of_pvalue_after_cutoff"
 setwd("C:/Rdata/20221108_correlaiton_between_RBP_level_and_miRNA_level_with_excluding_outlier")
 cor.result <-read.table("summary_of_correlaiton_between_RBP_level_and_miRNA_level_with_excluding_outlier_and_considering_no_expression.txt",sep="\t",header = T,stringsAsFactors = F)
 cor.result[,1] <-paste0(cor.result[,1],"_vs_",cor.result[,2])
@@ -14,7 +14,8 @@ cor.result <-cor.result[,c(1,5)]
 colnames(cor.result)[1] <-"combination"
 
 # import table about correlation coefficient
-# this table is located at ""
+# this table is located at "https://github.com/Ryosuke-Hirota/20221206_correlaiton_analysis_between_RBP_and_miRNA_in_each_site"
+# this table is compressed as zip file
 setwd("C:/Rdata/20221206_correlaiton_analysis_between_RBP_and_miRNA_in_each_site")
 cor.table <-read.table("table_of_correlation_coefficient_by_each_site.txt",sep="\t",header = T,stringsAsFactors = F)
 
@@ -70,6 +71,7 @@ for (i in 13:length(cutoff)) {
   }}
 
 # make list of relative rank
+# these lists are located at "\\fsw-q02\okamura-lab\Files_related_to_M1_Projects\Hirota\CCLE_plot\20221209_calculate_score_about_relative_rank"
 rank <-list.files(path="C:/Rdata/20221209_calculate_score_about_relative_rank",pattern = "relative_rank")
 rank.list <-as.list(NULL)
 for (i in 1:length(cutoff)) {
@@ -85,6 +87,7 @@ for (i in 1:length(cutoff)) {
 #cell <-cell.df[,1]
 
 # cutoff sample > 30
+# this list is located at "https://github.com/Ryosuke-Hirota/20221209_calculate_score_about_relative_rank"
 setwd("C:/Rdata/rho_for_RBP_vs_miRNA_by_site")
 site.cutoff <-read.table("CCLE_cell_lines_whose_have_over_30_samples.txt",sep="\t",header = T,stringsAsFactors = F)
 cell <-site.cutoff[,1]
@@ -145,6 +148,7 @@ for (i in 1:length(cutoff)) {
   }
 
 # make each list about p.value
+# these lists are located at "\\fsw-q02\okamura-lab\Files_related_to_M1_Projects\Hirota\CCLE_plot\20221209_calculate_score_about_relative_rank"
 pp.lists <-list.files(path="C:/Rdata/20221209_calculate_score_about_relative_rank",pattern = "pvalue_of_positive")
 np.lists <-list.files(path = "C:/Rdata/20221209_calculate_score_about_relative_rank",pattern = "pvalue_of_negative")
 
