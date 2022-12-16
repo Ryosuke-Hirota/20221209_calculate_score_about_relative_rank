@@ -31,7 +31,7 @@ cutoff <-seq(0,900,50)
 setwd("C:/Rdata/20221209_calculate_score_about_relative_rank")
 
 #calculate relative ranking of positive or negative
-for (i in 13:length(cutoff)) {
+for (i in 1:length(cutoff)) {
   for (k in 3:27) {
       
   # set cutoff
@@ -79,7 +79,6 @@ for (i in 1:length(cutoff)) {
   tables <-rank[l]
   rank.list[[i]] <-tables
   }
-
 
 #cutoff sample > 25
 #setwd("C:/Rdata")
@@ -152,9 +151,13 @@ for (i in 1:length(cutoff)) {
 pp.lists <-list.files(path="C:/Rdata/20221209_calculate_score_about_relative_rank",pattern = "pvalue_of_positive")
 np.lists <-list.files(path = "C:/Rdata/20221209_calculate_score_about_relative_rank",pattern = "pvalue_of_negative")
 
+# change order of list
+pp.lists <-pp.lists[c(1,10,2:9,11:19)]
+np.lists <-np.lists[c(1,10,2:9,11:19)]
+
 # calculate score
 for (i in 1:length(cutoff)) {
-  # import lists of pvalue
+  # import lists of p value
   p.list <-read.table(pp.lists[i],sep="\t",header = T,stringsAsFactors = F)
   np.list <-read.table(np.lists[i],sep="\t",header = T,stringsAsFactors = F)
   
